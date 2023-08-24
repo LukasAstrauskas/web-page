@@ -1,7 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Greet from "./components/Greet";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/About";
 
 function App() {
   return (
@@ -20,7 +22,12 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Greet />
+      {/* <Greet /> */}
+      <Routes>
+        {/* <Route path="/" element={<Greet />}></Route> */}
+        <Route path="/web-page" element={<Greet />}></Route>
+        <Route path="web-page/about" element={<About />}></Route>
+      </Routes>
     </div>
   );
 }
