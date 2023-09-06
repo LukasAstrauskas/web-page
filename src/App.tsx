@@ -24,13 +24,13 @@ function App() {
       </header> */}
       {/* <Greet /> */}
       <span>
-        <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/about"}>About</NavLink>
+        <NavLink to={""}>Home</NavLink>
+        <NavLink to={"about"}>About</NavLink>
       </span>
       <Routes>
         {/* <Route path="/" element={<Greet />}></Route> */}
-        <Route path="/" element={<Greet />}></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route path="" element={<Greet />}></Route>
+        <Route path="about" element={<About />}></Route>
       </Routes>
     </div>
   );
