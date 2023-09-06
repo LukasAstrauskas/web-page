@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../redux/store";
+import { addTask } from "../redux/slices/todoSlice";
+// import { selectTodos } from "../redux/slices/todoSlice";
 
 const Greet = () => {
   const [input, setInput] = useState("value");
+  const todos = useAppSelector((state) => state.todos.todos);
+  const dispatch = useAppDispatch();
+  const myList = ["Arr", "Buss"];
   return (
     <>
       <h1>Hash # Router Tests.</h1>
@@ -14,9 +21,15 @@ const Greet = () => {
           setInput(e.target.value);
         }}
       />
+      <button onClick={() => dispatch(addTask(input))}>Add</button>
       <p>
-        {input} <nav> One nav </nav>
+        {input} <nav>Todos:</nav>
       </p>
+      {todos.map((todo) => (
+        <p>{todo.task}</p>
+      ))}
+      {/* <p> {todos[0].task} </p> */}
+      <p> {todos.length} </p>
     </>
   );
 };
