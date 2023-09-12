@@ -5,8 +5,8 @@ import { addTask } from "../redux/slices/todoSlice";
 // import { selectTodos } from "../redux/slices/todoSlice";
 
 const Greet = () => {
-  const [input, setInput] = useState("value");
-  const todos = useAppSelector((state) => state.todos.todos);
+  const [input, setInput] = useState("");
+  const todos = useAppSelector((state) => state.tasks.taskList);
   const dispatch = useAppDispatch();
   const myList = ["Arr", "Buss"];
   return (
@@ -21,12 +21,21 @@ const Greet = () => {
           setInput(e.target.value);
         }}
       />
-      <button onClick={() => dispatch(addTask(input))}>Add</button>
+      <button
+        onClick={() => {
+          dispatch(addTask(input));
+          setInput("");
+        }}
+      >
+        Add
+      </button>
       <p>
-        {input} <nav>Todos:</nav>
+        <nav>Todos:</nav>
       </p>
       {todos.map((todo) => (
-        <p>{todo.task}</p>
+        <p>
+          {todo.task} {todo.completed ? "Done" : "Todo"}
+        </p>
       ))}
       {/* <p> {todos[0].task} </p> */}
       <p> {todos.length} </p>

@@ -9,11 +9,11 @@ interface Todo {
 }
 
 interface TodosState {
-  todos: Todo[];
+  taskList: Todo[];
 }
 
 const initialState: TodosState = {
-  todos: [{ id: nanoid(), task: "Buy milk.", completed: false }],
+  taskList: [{ id: nanoid(), task: "Buy milk.", completed: true }],
 };
 
 // [
@@ -30,7 +30,7 @@ export const todoslice = createSlice({
         task: action.payload,
         completed: false,
       };
-      state.todos.push(newTask);
+      state.taskList.push(newTask);
     },
   },
 });

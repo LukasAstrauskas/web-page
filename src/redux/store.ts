@@ -3,7 +3,7 @@ import todoReducer from "./slices/todoSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 export const store = configureStore({
-  reducer: { todos: todoReducer },
+  reducer: { tasks: todoReducer },
 });
 
 export const useAppSelector: TypedUseSelectorHook<
